@@ -28,19 +28,64 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblCpuValue = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(42)))), ((int)(((byte)(57)))));
+            this.panel1.Controls.Add(this.lblCpuValue);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Location = new System.Drawing.Point(20, 20);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 120);
+            this.panel1.TabIndex = 1;
+            // 
+            // lblCpuValue
+            // 
+            this.lblCpuValue.AutoSize = true;
+            this.lblCpuValue.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCpuValue.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblCpuValue.Location = new System.Drawing.Point(65, 59);
+            this.lblCpuValue.Name = "lblCpuValue";
+            this.lblCpuValue.Size = new System.Drawing.Size(59, 23);
+            this.lblCpuValue.TabIndex = 1;
+            this.lblCpuValue.Text = "label2";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(42, 14);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(101, 23);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "CPU USAGE";
             // 
             // UC_Overview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(22)))), ((int)(((byte)(31)))));
+            this.Controls.Add(this.panel1);
             this.Name = "UC_Overview";
+            this.Padding = new System.Windows.Forms.Padding(20);
+            this.Size = new System.Drawing.Size(800, 500);
             this.Load += new System.EventHandler(this.UC_Overview_Load);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblCpuValue;
+        private System.Windows.Forms.Label label1;
     }
 }

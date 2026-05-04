@@ -41,7 +41,6 @@
             this.btnOverview = new System.Windows.Forms.Button();
             this.btnDashboard = new System.Windows.Forms.Button();
             this.PnlHeader.SuspendLayout();
-            this.PnlMainWorkspace.SuspendLayout();
             this.pnlSidebar.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -100,8 +99,9 @@
             // 
             // PnlMainWorkspace
             // 
-            this.PnlMainWorkspace.Controls.Add(this.pnlContainer);
-            this.PnlMainWorkspace.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PnlMainWorkspace.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.PnlMainWorkspace.Location = new System.Drawing.Point(0, 60);
             this.PnlMainWorkspace.Name = "PnlMainWorkspace";
             this.PnlMainWorkspace.Padding = new System.Windows.Forms.Padding(20);
@@ -110,15 +110,15 @@
             // 
             // pnlContainer
             // 
-            this.pnlContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlContainer.Location = new System.Drawing.Point(20, 20);
+            this.pnlContainer.Location = new System.Drawing.Point(206, 3);
             this.pnlContainer.Name = "pnlContainer";
-            this.pnlContainer.Size = new System.Drawing.Size(1326, 668);
+            this.pnlContainer.Size = new System.Drawing.Size(1326, 696);
             this.pnlContainer.TabIndex = 0;
             // 
             // pnlSidebar
             // 
             this.pnlSidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(42)))), ((int)(((byte)(57)))));
+            this.pnlSidebar.Controls.Add(this.pnlContainer);
             this.pnlSidebar.Controls.Add(this.btnSettings);
             this.pnlSidebar.Controls.Add(this.btnMetrics);
             this.pnlSidebar.Controls.Add(this.btnOverview);
@@ -183,7 +183,6 @@
             this.Load += new System.EventHandler(this.frmMainDashboard_Load);
             this.PnlHeader.ResumeLayout(false);
             this.PnlHeader.PerformLayout();
-            this.PnlMainWorkspace.ResumeLayout(false);
             this.pnlSidebar.ResumeLayout(false);
             this.ResumeLayout(false);
 

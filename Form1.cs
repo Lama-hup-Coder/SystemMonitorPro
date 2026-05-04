@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+// إضافة المسار الخاص باليوزر كنترولز لسهولة الاستخدام
+using SystemMonitorPro.UserControls;
 
 namespace SystemMonitorPro
 {
@@ -59,45 +61,52 @@ namespace SystemMonitorPro
 
         private void frmMainDashboard_Load(object sender, EventArgs e)
         {
-            // ترتيب الأدوات لضمان عدم التداخل
+            // 1. ترتيب الأدوات (Docking) لضمان ملء المساحات بشكل ديناميكي
             PnlHeader.Dock = DockStyle.Top;
             pnlSidebar.Dock = DockStyle.Left;
             PnlMainWorkspace.Dock = DockStyle.Fill;
 
-            // جلب الهيدر للأمام لضمان ظهوره فوق مساحة العمل
+            // 2. إدارة الطبقات (Z-Order)
+            pnlSidebar.BringToFront();
             PnlHeader.BringToFront();
+            PnlMainWorkspace.SendToBack();
 
-            // ضبط إحداثيات اللوجو والأزرار (X و -)
+            // 3. تنسيق اللوجو والأزرار العلوية
             lblLogo.Location = new Point(20, 18);
 
+            // إعداد زر الإغلاق
             btnClose.Size = new Size(35, 35);
             btnClose.Location = new Point(PnlHeader.Width - 45, 12);
             btnClose.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnClose.Text = "✕";
 
+            // إعداد زر التصغير
             btnMinimize.Size = new Size(35, 35);
             btnMinimize.Location = new Point(btnClose.Left - 40, 12);
             btnMinimize.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnMinimize.Text = "—";
 
-            // عرض شاشة الـ Overview تلقائياً عند التشغيل
-            ShowUserControl(new SystemMonitorPro.UserControls.UC_Overview());
+            // 4. عرض شاشة الـ Overview تلقائياً عند التشغيل (استدعاء واحد فقط)
+            ShowUserControl(new UC_Overview());
         }
 
         // دالة عرض الـ UserControl داخل مساحة العمل
         private void ShowUserControl(UserControl control)
         {
-            if (PnlMainWorkspace.Controls.Count > 0)
-                PnlMainWorkspace.Controls.Clear();
+            if (control == null) return;
 
+            PnlMainWorkspace.Controls.Clear();
             control.Dock = DockStyle.Fill;
             PnlMainWorkspace.Controls.Add(control);
+
+            control.Show();
+            control.BringToFront();
         }
 
         // حدث الضغط على زر Overview في القائمة الجانبية
         private void btnOverview_Click(object sender, EventArgs e)
         {
-            ShowUserControl(new SystemMonitorPro.UserControls.UC_Overview());
+            ShowUserControl(new UC_Overview());
         }
 
         // حدث إغلاق البرنامج
@@ -121,7 +130,5 @@ namespace SystemMonitorPro
                 SendMessage(Handle, 0xA1, 0x2, 0);
             }
         }
-
-        
     }
 }
