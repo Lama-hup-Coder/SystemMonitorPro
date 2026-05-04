@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
@@ -16,6 +17,12 @@ namespace SystemMonitorPro.UserControls
         public UC_Overview()
         {
             InitializeComponent();
+
+            // هذا السطر يحمي شاشة التصميم من الانهيار
+            if (LicenseManager.UsageMode != LicenseUsageMode.Designtime)
+            {
+                LoadCPUChart();
+            }
         }
 
         private void UC_Overview_Load(object sender, EventArgs e)

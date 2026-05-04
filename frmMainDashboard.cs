@@ -21,6 +21,9 @@ namespace SystemMonitorPro
         public frmMainDashboard()
         {
             InitializeComponent();
+
+            // استدعاء حدث الضغط على الزر برمجياً ليظهر الأوفر فيو فوراً
+            btnOverview_Click(null, null);
         }
 
         /// <summary>
@@ -116,6 +119,36 @@ namespace SystemMonitorPro
                     MessageBox.Show("Error generating data: " + ex.Message);
                 }
             }
+        }
+
+
+
+        private void LoadUserControl(UserControl userControl)
+        {
+            // تنظيف البنل من أي يوزر كنترول قديم
+            if (PnlMainWorkspace.Controls.Count > 0)
+                PnlMainWorkspace.Controls.Clear();
+
+            // ضبط اليوزر كنترول الجديد ليملاً المساحة بالكامل
+            userControl.Dock = DockStyle.Fill;
+
+            // إضافة اليوزر كنترول الجديد للبنل
+            PnlMainWorkspace.Controls.Add(userControl);
+        }
+
+        private void btnOverview_Click(object sender, EventArgs e)
+        {
+            // 1. تنظيف الـ Panel من أي شيء موجود فيه حالياً
+            PnlMainWorkspace.Controls.Clear();
+
+            // 2. إنشاء نسخة جديدة من اليوزر كنترول
+            UC_Overview uc = new UC_Overview();
+
+            // 3. ضبط الحجم ليمتد داخل الـ Panel بالكامل
+            uc.Dock = DockStyle.Fill;
+
+            // 4. إضافة الكنترول داخل الـ Panel
+            PnlMainWorkspace.Controls.Add(uc);
         }
     }
 
