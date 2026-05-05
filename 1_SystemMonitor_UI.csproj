@@ -54,6 +54,12 @@
       <DependentUpon>frmMainDashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="Global\UIHelper.cs" />
+    <Compile Include="RAMMonitor Controls\UC_RAMMonitor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RAMMonitor Controls\UC_RAMMonitor.Designer.cs">
+      <DependentUpon>UC_RAMMonitor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserControls\UC_Overview.cs">
@@ -75,6 +81,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="RAMMonitor Controls\UC_RAMMonitor.resx">
+      <DependentUpon>UC_RAMMonitor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UC_Overview.resx">
       <DependentUpon>UC_Overview.cs</DependentUpon>
     </EmbeddedResource>
